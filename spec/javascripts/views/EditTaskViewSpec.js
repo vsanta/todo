@@ -86,10 +86,10 @@ describe("Todo.views.EditTaskView", function () {
       expect(this.saveStub).toHaveBeenCalled();
     });
 
-    it("passes remove as callback for save", function () {
+    it("passes callbacks for save", function () {
       this.view.saveModel(this.event);
 
-      expect(this.saveStub).toHaveBeenCalledWith(this.view.model.attributes, {success: this.view.remove});
+      expect(this.saveStub).toHaveBeenCalledWith(this.view.model.attributes, {success: this.view.remove, error: this.view.displayErrors});
     });
   });
 
@@ -100,6 +100,20 @@ describe("Todo.views.EditTaskView", function () {
       this.view.remove();
 
       expect($(this.view.el).html()).toEqual('');
+    });
+  });
+
+  describe("displayErrors", function () {
+    it("appends error message to errors", function () {
+      setFixtures("<div class='errors'></div>");
+
+      var model = new Backbone.Model();
+
+      model.errors = [{field: "some field", message: "ERROR"}];
+
+      this.view.displayErrors(model);
+
+      expect($('div.errors').html()).toMatch("ERROR");
     });
   });
 });

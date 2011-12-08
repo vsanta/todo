@@ -8,6 +8,7 @@ namespace('Todo.views', {
 
     initialize: function () {
       _.bindAll(this, "remove");
+      _.bindAll(this, "displayErrors");
     },
 
     render: function () {
@@ -29,11 +30,17 @@ namespace('Todo.views', {
       event.preventDefault();
       event.stopPropagation();
 
-      this.model.save(this.model.attributes, {success: this.remove});
+      this.model.save(this.model.attributes, {success: this.remove, error: this.displayErrors});
     },
 
     remove: function () {
       $(this.el).remove();
+    },
+
+    displayErrors: function (model, response) {
+      _.each(model.errors, function (error) {
+       $('div.errors').append(error.message);
+      });
     }
   })
 });
