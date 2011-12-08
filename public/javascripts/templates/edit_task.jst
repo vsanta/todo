@@ -1,11 +1,11 @@
-<form>
+<form id="edit-task">
   <div class="input">
     <label name="description">Description</label>
-    <input type="text" value="<%= description %>" />
+    <input type="text" name="description" value="<%= description %>" />
   </div>
   <div class="input">
     <label name="complete">Complete?</label>
-    <input type="checkbox" value="<%= complete %>" />
+    <input type="checkbox" name="complete" value="<%= complete %>" />
   </div>
   <div class="actions">
     <button type="submit" class="btn primary">Save Task</button>

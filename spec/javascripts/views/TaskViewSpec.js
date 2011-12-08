@@ -31,7 +31,7 @@ describe("TaskView", function () {
     beforeEach(function () {
       this.editTaskView = new Todo.views.EditTaskView();
       this.editStub = sinon.stub(Todo.views, "EditTaskView").returns(this.editTaskView);
-      this.renderStub = sinon.stub(this.editTaskView, "render");
+      this.renderStub = sinon.stub(this.editTaskView, "render").returns(this.editTaskView);
     });
 
     afterEach(function () {
@@ -67,7 +67,7 @@ describe("TaskView", function () {
 
       this.view.editTask();
 
-      expect($('div.edit').html()).toEqual('');
+      expect($('div.edit').html()).not.toMatch('some content');
     });
   });
 });

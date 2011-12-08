@@ -16,7 +16,7 @@ namespace('Todo.views', {
     editTask: function () {
       this.resetEdit();
       this.editTaskView = new Todo.views.EditTaskView({model: this.model});
-      this.editTaskView.render();
+      $('.edit').html(this.editTaskView.render().el);
     },
 
     resetEdit: function () {
