@@ -49,4 +49,15 @@ describe TasksController do
       delete :destroy, :id => "1"
     end
   end
+
+  context "update" do
+    it "updates a task" do
+      task = Task.new
+
+      Task.should_receive(:find).with("1").and_return(task)
+      task.should_receive(:update_attributes).with("description" => "something")
+
+      put :update, :id => "1", :description => "something"
+    end
+  end
 end
