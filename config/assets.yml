@@ -3,6 +3,7 @@ template_function: _.template
 javascripts:
   task:
     - public/javascripts/templates/task.jst
+    - public/javascripts/templates/edit_task.jst
     - public/javascripts/vendor/jquery.js
     - public/javascripts/vendor/underscore.js
     - public/javascripts/vendor/backbone.js
@@ -10,6 +11,7 @@ javascripts:
     - public/javascripts/application.js
     - public/javascripts/models/Task.js
     - public/javascripts/collections/Tasks.js
+    - public/javascripts/views/EditTaskView.js
     - public/javascripts/views/TasksView.js
     - public/javascripts/views/TaskView.js
 
