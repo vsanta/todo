@@ -39,7 +39,7 @@ namespace('Todo.views', {
 
     displayErrors: function (model, response) {
       _.each(model.errors, function (error) {
-       $('div.errors').append(error.message);
+       $('div.errors').append('<div class="alert-message">' + error.message + '</div>');
       });
     }
   })
