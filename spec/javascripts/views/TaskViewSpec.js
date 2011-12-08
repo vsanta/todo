@@ -1,9 +1,9 @@
 describe("TaskView", function () {
   beforeEach(function () {
     JST = {task: function() {}};
-    var model = new Backbone.Model({description: "do this thing"});
+    this.model = new Backbone.Model({description: "do this thing"});
 
-    this.view = new Todo.views.TaskView({model: model});
+    this.view = new Todo.views.TaskView({model: this.model});
   });
 
   it("tagName is 'tr'", function () {
@@ -23,7 +23,15 @@ describe("TaskView", function () {
 
   describe("events", function () {
     it("binds 'click .task' to 'editTask'", function () {
-     expect(this.view.events['click.task']).toEqual('editTask');
+      expect(this.view.events['click.task']).toEqual('editTask');
+    });
+
+    it("binds a change event to the model", function () {
+      var bindSpy = sinon.spy(this.model, "bind");
+
+      var view = new Todo.views.TaskView({model: this.model});
+
+      expect(bindSpy).toHaveBeenCalledWith("change", view.render, view)
     });
   });
 

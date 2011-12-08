@@ -44,6 +44,21 @@ describe("Todo.views.EditTaskView", function () {
 
       expect(this.view.model.get("notes")).toEqual("some notes");
     });
+
+    it("silently sets the model", function () {
+      var setSpy = sinon.spy(this.view.model, "set");
+
+      var mockEvent = {
+        currentTarget: {
+          name : "notes",
+          value: "some notes"
+        }
+      };
+
+      this.view.updateModel(mockEvent);
+
+      expect(setSpy).toHaveBeenCalledWith({"notes": "some notes"}, {silent: true});
+    });
   });
 
   describe("saveModel", function () {
@@ -69,6 +84,22 @@ describe("Todo.views.EditTaskView", function () {
       this.view.saveModel(this.event);
 
       expect(this.saveStub).toHaveBeenCalled();
+    });
+
+    it("passes remove as callback for save", function () {
+      this.view.saveModel(this.event);
+
+      expect(this.saveStub).toHaveBeenCalledWith(this.view.model.attributes, {success: this.view.remove});
+    });
+  });
+
+  describe("remove", function () {
+    it("clears el's html", function () {
+      this.view.render();
+
+      this.view.remove();
+
+      expect($(this.view.el).html()).toEqual('');
     });
   });
 });

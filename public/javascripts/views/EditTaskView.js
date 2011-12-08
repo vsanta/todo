@@ -6,6 +6,10 @@ namespace('Todo.views', {
       "submit form#edit-task" : "saveModel"
     },
 
+    initialize: function () {
+      _.bindAll(this, "remove");
+    },
+
     render: function () {
      var html = JST['edit_task'](this.model.attributes);
      $(this.el).html(html);
@@ -18,14 +22,18 @@ namespace('Todo.views', {
       var attrs = {}
       attrs[name] = value;
 
-      this.model.set(attrs);
+      this.model.set(attrs, { silent: true });
     },
 
     saveModel: function (event) {
       event.preventDefault();
       event.stopPropagation();
 
-      this.model.save();
+      this.model.save(this.model.attributes, {success: this.remove});
+    },
+
+    remove: function () {
+      $(this.el).remove();
     }
   })
 });

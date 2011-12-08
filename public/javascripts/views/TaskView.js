@@ -7,6 +7,10 @@ namespace('Todo.views', {
       "click.task" : "editTask"
     },
 
+    initialize: function () {
+      this.model.bind('change', this.render, this);
+    },
+
     render : function () {
       var html = JST['task']({description: this.model.get("description")});
       $(this.el).html(html);
