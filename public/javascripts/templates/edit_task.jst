@@ -1,1 +1,13 @@
-<%= description %>
+<form>
+  <div class="input">
+    <label name="description">Description</label>
+    <input type="text" value="<%= description %>" />
+  </div>
+  <div class="input">
+    <label name="complete">Complete?</label>
+    <input type="checkbox" value="<%= complete %>" />
+  </div>
+  <div class="actions">
+    <button type="submit" class="btn primary">Save Task</button>
+  </div>
+</form>

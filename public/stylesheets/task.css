@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+.edit {
+  margin-top: 4em;
+  text-align: left;
+}
+
 #new-task {
   font-size: 1.2em;
   height: 1.2em;
