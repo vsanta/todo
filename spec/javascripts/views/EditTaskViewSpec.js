@@ -45,6 +45,22 @@ describe("Todo.views.EditTaskView", function () {
       expect(this.view.model.get("notes")).toEqual("some notes");
     });
 
+    it("handles checkboxes", function () {
+      this.view.model.set({"complete": true})
+
+      var mockEvent = {
+        currentTarget: {
+          name: "complete",
+          type: "checkbox",
+          checked: false
+        }
+      };
+
+      this.view.updateModel(mockEvent)
+
+      expect(this.view.model.get("complete")).toEqual(false);
+    });
+
     it("silently sets the model", function () {
       var setSpy = sinon.spy(this.view.model, "set");
 

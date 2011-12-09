@@ -18,11 +18,23 @@ namespace('Todo.views', {
     },
 
     updateModel: function (event) {
-      var name = $(event.currentTarget).attr("name");
-      var value = $(event.currentTarget).attr("value");
+      // Hmm, this method could use some refactoring...
+      var target = $(event.currentTarget);
+      var name = target.attr("name");
+      var value = null;
+
+      if (target.attr("type") === "checkbox") {
+        if (target.is(":checked")) {
+          value = true;
+        } else {
+          value = false;
+        }
+      } else {
+        value = target.attr("value");
+      }
+
       var attrs = {}
       attrs[name] = value;
-
       this.model.set(attrs, { silent: true });
     },
 

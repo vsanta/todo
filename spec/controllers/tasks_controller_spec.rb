@@ -55,9 +55,9 @@ describe TasksController do
       task = Task.new
 
       Task.should_receive(:find).with("1").and_return(task)
-      task.should_receive(:update_attributes).with("description" => "something")
+      task.should_receive(:update_attributes).with("description" => "something", "complete" => false)
 
-      put :update, :id => "1", :description => "something"
+      put :update, :id => "1", :description => "something", :complete => false
     end
   end
 end

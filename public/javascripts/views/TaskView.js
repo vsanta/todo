@@ -12,7 +12,7 @@ namespace('Todo.views', {
     },
 
     render : function () {
-      var html = JST['task']({description: this.model.get("description")});
+      var html = JST['task'](this.model.attributes);
       $(this.el).html(html);
       return this;
     },

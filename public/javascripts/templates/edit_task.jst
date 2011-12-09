@@ -7,7 +7,7 @@
   </div>
     <label name="complete">Complete?</label>
   <div class="input">
-    <input type="checkbox" name="complete" value="<%= complete %>" />
+    <input type="checkbox" name="complete" value="true" <% if (complete===true) { %> checked <% } %> />
   </div>
   <div class="actions">
     <button type="submit" class="btn large primary">Save Task</button>
