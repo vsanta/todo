@@ -1,0 +1,25 @@
+<%= form_for(@boring_old_rails_task) do |f| %>
+  <% if @boring_old_rails_task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@boring_old_rails_task.errors.count, "error") %> prohibited this boring_old_rails_task from being saved:</h2>
+
+      <ul>
+      <% @boring_old_rails_task.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :lame_description %><br />
+    <%= f.text_field :lame_description %>
+  </div>
+  <div class="field">
+    <%= f.label :complete_like_anyone_cares %><br />
+    <%= f.check_box :complete_like_anyone_cares %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

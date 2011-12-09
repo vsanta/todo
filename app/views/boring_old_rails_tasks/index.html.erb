@@ -1,0 +1,25 @@
+<h1>Listing boring_old_rails_tasks</h1>
+
+<table>
+  <tr>
+    <th>Lame description</th>
+    <th>Complete like anyone cares</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @boring_old_rails_tasks.each do |boring_old_rails_task| %>
+  <tr>
+    <td><%= boring_old_rails_task.lame_description %></td>
+    <td><%= boring_old_rails_task.complete_like_anyone_cares %></td>
+    <td><%= link_to 'Show', boring_old_rails_task %></td>
+    <td><%= link_to 'Edit', edit_boring_old_rails_task_path(boring_old_rails_task) %></td>
+    <td><%= link_to 'Destroy', boring_old_rails_task, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Boring old rails task', new_boring_old_rails_task_path %>
