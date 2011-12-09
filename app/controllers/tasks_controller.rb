@@ -1,19 +1,19 @@
 class TasksController < ApplicationController
 
   def index
-    render :json => Task.all.to_json
+    render :json => Task.all.to_json(:only => [:id, :description, :complete])
   end
 
   def create
     task = Task.create(:description => params["description"])
-    render :json => task
+    render :json => task.to_json(:only => [:id, :description, :complete])
   end
 
   def update
     task = Task.find(params["id"])
     task.update_attributes("description" => params["description"], "complete" => params["complete"])
 
-    render :json => task
+    render :json => task.to_json(:only => [:id, :description, :complete])
   end
 
   def destroy

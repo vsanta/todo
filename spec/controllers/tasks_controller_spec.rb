@@ -14,7 +14,7 @@ describe TasksController do
 
       get :index
 
-      response.body.should == tasks.to_json
+      response.body.should == tasks.to_json(:only => [:id, :description, :complete])
     end
   end
 
@@ -35,7 +35,7 @@ describe TasksController do
 
       post :create, "description" => "some description"
 
-      response.body.should == @task.to_json
+      response.body.should == @task.to_json(:only => [:id, :description, :complete])
     end
   end
 
