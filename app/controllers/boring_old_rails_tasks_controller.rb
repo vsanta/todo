@@ -44,7 +44,7 @@ class BoringOldRailsTasksController < ApplicationController
 
     respond_to do |format|
       if @boring_old_rails_task.save
-        format.html { redirect_to(@boring_old_rails_task, :notice => 'Boring old rails task was successfully created.') }
+        format.html { redirect_to(@boring_old_rails_task, :notice => 'Boring old rails task was successfully created. Don\'t you have anything better to do?') }
         format.xml  { render :xml => @boring_old_rails_task, :status => :created, :location => @boring_old_rails_task }
       else
         format.html { render :action => "new" }
@@ -60,7 +60,7 @@ class BoringOldRailsTasksController < ApplicationController
 
     respond_to do |format|
       if @boring_old_rails_task.update_attributes(params[:boring_old_rails_task])
-        format.html { redirect_to(@boring_old_rails_task, :notice => 'Boring old rails task was successfully updated.') }
+        format.html { redirect_to(@boring_old_rails_task, :notice => 'Boring old rails task was probably updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

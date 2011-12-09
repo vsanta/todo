@@ -4,6 +4,7 @@ namespace('Todo.views', {
     className: 'task-list',
     events: {
       'keyup #new-task' : 'createOnEnter',
+      'focus #new-task' : 'clearEdit'
     },
 
     initialize : function () {
@@ -37,6 +38,10 @@ namespace('Todo.views', {
 
     clearInput : function () {
       $('#new-task').attr("value", '');
+    },
+
+    clearEdit: function () {
+      $('.edit').html('');
     }
 
   })

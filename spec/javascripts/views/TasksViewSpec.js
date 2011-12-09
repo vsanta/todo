@@ -16,6 +16,10 @@ describe("TasksView", function () {
     it("binds 'createOnEnter' to 'keyup #new-task'", function () {
       expect(this.view.events['keyup #new-task']).toEqual('createOnEnter');
     });
+
+    it("binds 'clearEdit' to 'focus #new-task'", function () {
+      expect(this.view.events['focus #new-task']).toEqual('clearEdit');
+    });
   });
 
   describe("createOnEnter", function () {
@@ -98,5 +102,15 @@ describe("TasksView", function () {
     it("appends the task to the task list", function() {
       expect($('.tasks').children().length).toEqual(2);
     });
+  });
+
+  describe('clearEdit', function () {
+    it("clears html from the edit class element", function () {
+      setFixtures("<div class='edit'>some content</div>");
+
+      this.view.clearEdit();
+
+      expect($('.edit').html()).toEqual('');
+    })
   });
 });
