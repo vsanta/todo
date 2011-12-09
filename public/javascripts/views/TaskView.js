@@ -8,12 +8,12 @@ namespace('Todo.views', {
     },
 
     initialize: function () {
-      this.model.bind('change', this.render, this);
+      this.model.bind('change', this.render, this);     //insta-refresh!
     },
 
     render : function () {
       var html = JST['task'](this.model.attributes);
-      $(this.el).html(html);
+      $(this.el).html(html);          //this.el is where events are bound
       return this;
     },
 
@@ -24,6 +24,7 @@ namespace('Todo.views', {
     },
 
     resetEdit: function () {
+      // prevent any weirdness with rogue bindings
       $('div.edit').html('');
       if (this.editTaskView !== undefined) {
         this.editTaskView.unbind();

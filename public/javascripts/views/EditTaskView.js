@@ -17,27 +17,6 @@ namespace('Todo.views', {
      return this;
     },
 
-    updateModel: function (event) {
-      // Hmm, this method could use some refactoring...
-      var target = $(event.currentTarget);
-      var name = target.attr("name");
-      var value = null;
-
-      if (target.attr("type") === "checkbox") {
-        if (target.is(":checked")) {
-          value = true;
-        } else {
-          value = false;
-        }
-      } else {
-        value = target.attr("value");
-      }
-
-      var attrs = {}
-      attrs[name] = value;
-      this.model.set(attrs, { silent: true });
-    },
-
     saveModel: function (event) {
       event.preventDefault();
       event.stopPropagation();
@@ -53,6 +32,34 @@ namespace('Todo.views', {
       _.each(model.errors, function (error) {
        $('div.errors').append('<div class="alert-message">' + error.message + '</div>');
       });
+    },
+
+    updateModel: function (event) {
+      var target = $(event.currentTarget);
+      var attrs = this.changedAttribute(target);
+      console.log("im in ur console, loggin ur attributes");
+      console.log(attrs);
+      this.model.set(attrs, { silent: true });
+    },
+
+    changedAttribute: function (target) {
+      // Hmm, this method could use some refactoring...
+      var name = target.attr("name");
+      var value = null;
+      var attrs = {};
+
+      if (target.attr("type") === "checkbox") {
+        if (target.is(":checked")) {
+          value = true;
+        } else {
+          value = false;
+        }
+      } else {
+        value = target.attr("value");
+      }
+
+      attrs[name] = value;
+      return attrs;
     }
   })
 });
