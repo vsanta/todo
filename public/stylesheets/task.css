@@ -15,10 +15,19 @@
   color: red;
 }
 
+#edit-task {
+  margin-left: 4em;
+}
+
 .complete {
   text-align: right;
   font-size: 0.8em;
   font-style: italic;
+}
+
+.save {
+  margin-top: 1em;
+  text-align: center;
 }
 
 #new-task {
