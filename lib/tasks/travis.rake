@@ -1,7 +1,12 @@
-task :travis do
-  ["rake jasmine:ci"].each do |cmd|
-    puts "Starting to run #{cmd}..."
-    system("export DISPLAY=:99.0 && bundle exec #{cmd}")
-    raise "#{cmd} failed!" unless $?.exitstatus == 0
+
+namespace :travis do
+  desc "runs migrations, rspec specs, then jasmine specs"
+  task :ci => ["db:migrate", "spec", "xvfb_setup", "jasmine:ci"]
+
+  task :xvfb_setup do
+    ENV["DISPLAY"] = ":99.0"
   end
 end
+
+desc "run tests for travis ci build"
+task :travis => "travis:ci"
