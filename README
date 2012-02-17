@@ -6,6 +6,7 @@ Specs written with Jasmine, using sinon.js for stubs and spies.
 
 Rails is the backend, using Jammit to manage assets.
 
+Build runs on travis-ci.org
 
 Instructions:
 
