@@ -10,6 +10,22 @@ describe "TasksView", ->
 
       expect(listenSpy).toHaveBeenCalledWith( task, 'sync', view.render)
 
+  describe "editTask", ->
+    describe "event binding", ->
+      it "is triggered on $el.click", ->
+        task = new Todo.models.Task
+          description: "Test task"
+          complete: false
+
+        editViewSpy = spyOn Todo.views.TaskView.prototype, 'editTask'
+
+        view = new Todo.views.TaskView model: task
+
+        setFixtures view.render().$el
+
+        view.render().$el.click()
+
+        expect(editViewSpy).toHaveBeenCalled()
 
 
 
