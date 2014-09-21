@@ -7,7 +7,8 @@ namespace('Todo.views', {
       "click" : "editTask"
     },
 
-    initialize: function () {
+    initialize: function (options) {
+      this.editContainer = options.editContainer;
       this.listenTo(this.model, 'sync', this.render);
     },
 
@@ -20,7 +21,7 @@ namespace('Todo.views', {
     editTask: function () {
       this.resetEdit();
       this.editTaskView = new Todo.views.EditTaskView({model: this.model});
-      $('.edit').html(this.editTaskView.render().el);
+      this.editContainer.html(this.editTaskView.render().el);
     },
 
     resetEdit: function () {
