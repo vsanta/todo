@@ -4,11 +4,11 @@ namespace('Todo.views', {
     className : 'task',
 
     events : {
-      "click.task" : "editTask"
+      "click" : "editTask"
     },
 
     initialize: function () {
-      this.model.bind('change', this.render, this);     //insta-refresh!
+      this.listenTo(this.model, 'sync', this.render);
     },
 
     render : function () {

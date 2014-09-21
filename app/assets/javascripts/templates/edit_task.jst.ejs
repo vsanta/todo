@@ -1,13 +1,13 @@
 <div class="errors">
 </div>
 <form id="edit-task">
-    <label name="description">Description</label>
+    <label for="description">Description</label>
   <div class="input">
-    <input type="text" name="description" value="<%= description %>" />
+    <input type="text" id="description" name="description" value="<%= description %>" />
   </div>
-    <label name="complete">Complete?</label>
+    <label for="complete">Complete?</label>
   <div class="input">
-    <input type="checkbox" name="complete" value="true" <% if (complete===true) { %> checked <% } %> />
+    <input type="checkbox" name="complete" id="complete" value="true" <% if (complete===true) { %> checked <% } %> />
   </div>
   <div class="save">
     <button type="submit" class="btn large primary">Save Task</button>

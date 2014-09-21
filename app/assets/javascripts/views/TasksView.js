@@ -24,9 +24,8 @@ namespace('Todo.views', {
       $('.tasks').prepend(taskEl);
     },
 
-    createOnEnter : function (event) {
+    createOnEnter : function () {
       var inputValue = this.$el.find("#new-task").val();
-
       this.collection.create({ description: inputValue, complete: false });
       this.clearInput();
     },
