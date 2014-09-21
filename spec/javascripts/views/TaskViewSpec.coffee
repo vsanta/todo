@@ -11,6 +11,28 @@ describe "TasksView", ->
       expect(listenSpy).toHaveBeenCalledWith( task, 'sync', view.render)
 
   describe "editTask", ->
+    beforeEach ->
+      @task = new Todo.models.Task
+        description: "Test task"
+        complete: false
+#
+    it "initializes and renders EditTaskView", ->
+      setFixtures('<div class="edit"></div>')
+
+      editCotainer = $('.edit')
+
+      view = new Todo.views.TaskView model: @task, editContainer: editCotainer
+
+      editViewInitialized = spyOn Todo.views.EditTaskView.prototype, 'initialize'
+      editViewRender = spyOn(Todo.views.EditTaskView.prototype, 'render').and.callFake ->
+        el: '<div></div>'
+
+      view.editTask()
+
+      expect(editViewInitialized).toHaveBeenCalledWith({model: @task})
+      expect(editViewRender).toHaveBeenCalledWith()
+      expect(editCotainer.html()).toEqual('<div></div>')
+
     describe "event binding", ->
       it "is triggered on $el.click", ->
         task = new Todo.models.Task
@@ -21,7 +43,7 @@ describe "TasksView", ->
 
         view = new Todo.views.TaskView model: task
 
-        setFixtures view.render().$el
+        setFixtures(view.render().$el)
 
         view.render().$el.click()
 
