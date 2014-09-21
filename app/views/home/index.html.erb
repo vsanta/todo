@@ -23,7 +23,7 @@
   $(document).ready(function() {
     App = {};
     App.collection = new Todo.collections.Tasks(<%= @tasks.to_json.html_safe %>);
-    App.view = new Todo.views.TasksView({collection: App.collection, el: '.task-list', editContainer: $('.edit')});
+    App.view = new Todo.views.TasksView({collection: App.collection, el: '.task-list', editContainer: $('.edit'), container: $('.tasks')});
     App.view.render();
   });
 </script>

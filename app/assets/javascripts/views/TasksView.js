@@ -7,8 +7,9 @@ namespace('Todo.views', {
       'focus #new-task' : 'clearEdit'
     },
 
-    initialize : function () {
-      view = this;
+    initialize : function (options) {
+      this.editContainer = options.editContainer;
+      this.container = options.container;
       this.collection.bind("add", this.addTask, this);
       _.bindAll(this, "addTask");
     },
@@ -19,9 +20,9 @@ namespace('Todo.views', {
     },
 
     addTask: function (task) {
-      var view = new Todo.views.TaskView({ model: task});
+      var view = new Todo.views.TaskView({ model: task, editContainer: this.editContainer });
       var taskEl = view.render().el;
-      $('.tasks').prepend(taskEl);
+      this.container.prepend(taskEl);
     },
 
     createOnEnter : function () {
