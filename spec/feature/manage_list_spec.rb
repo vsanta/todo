@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Create todo list', js: true do
+feature 'Create a task on the list', js: true do
   scenario 'user adds an item to the list' do
     visit '/'
     fill_in 'new task', with: 'add some test coverage'
@@ -14,7 +14,7 @@ feature 'Create todo list', js: true do
   end
 end
 
-feature 'Edit todo list', js: true do
+feature 'Edit task ', js: true do
   scenario 'user marks a task as complete' do
     visit '/'
     fill_in 'new task', with: 'soon to be complete'
