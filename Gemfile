@@ -12,6 +12,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'spring',        group: :development
+<<<<<<< HEAD
 
 group :development, :test do
   gem 'rspec-rails'
@@ -22,6 +23,10 @@ group :development, :test do
   gem 'database_cleaner'
 end
 
+=======
+
+
+>>>>>>> make it run
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'bootstrap-sass-extras'
 gem 'backbone-on-rails'
