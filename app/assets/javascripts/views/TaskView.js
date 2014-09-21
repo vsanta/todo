@@ -8,7 +8,7 @@ namespace('Todo.views', {
     },
 
     initialize: function () {
-      this.model.bind('change', this.render, this);     //insta-refresh!
+      this.listenTo(this.model, 'sync', this.render);
     },
 
     render : function () {

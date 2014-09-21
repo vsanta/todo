@@ -56,9 +56,7 @@ feature 'Edit todo list', js: true do
 
     fill_in 'Description', with: 'now I am different'
 
-    save_and_open_screenshot
     click_on 'Save Task'
-    save_and_open_screenshot
 
     within '.tasks' do
       expect(page).to have_text 'now I am different'

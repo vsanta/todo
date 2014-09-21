@@ -1,5 +1,6 @@
 namespace("Todo.models", {
   Task: Backbone.Model.extend({
+    urlRoot:  "tasks",
     validate: function (attributes) {
       this.errors = [];
       if (attributes.description == "") {
