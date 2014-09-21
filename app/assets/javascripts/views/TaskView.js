@@ -4,7 +4,7 @@ namespace('Todo.views', {
     className : 'task',
 
     events : {
-      "click.task" : "editTask"
+      "click" : "editTask"
     },
 
     initialize: function () {
