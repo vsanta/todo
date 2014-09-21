@@ -17,9 +17,11 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'selenium-webdriver'
+  gem 'capybara-webkit'
   gem 'jasmine'
   gem 'pry'
   gem 'database_cleaner'
+  gem 'launchy'
 end
 
 gem 'bootstrap-sass', '~> 3.2.0'
