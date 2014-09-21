@@ -1,0 +1,15 @@
+<div class="errors">
+</div>
+<form id="edit-task">
+    <label name="description">Description</label>
+  <div class="input">
+    <input type="text" name="description" value="<%= description %>" />
+  </div>
+    <label name="complete">Complete?</label>
+  <div class="input">
+    <input type="checkbox" name="complete" value="true" <% if (complete===true) { %> checked <% } %> />
+  </div>
+  <div class="save">
+    <button type="submit" class="btn large primary">Save Task</button>
+  </div>
+</form>

@@ -21,4 +21,9 @@ class TasksController < ApplicationController
     task.destroy
     render :nothing => true
   end
+
+  private
+  def tasks_params
+    params.require(:task).permit(:description, :complete)
+  end
 end

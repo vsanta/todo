@@ -7,5 +7,4 @@ require 'rake'
 
 Todo::Application.load_tasks
 
-task :default => 'travis'
 
