@@ -1,5 +1,9 @@
 <div class="container">
   <div class="row">
+
+    <div class="create-list">
+
+    </div>
     <div class="task-list span6">
 
       <h1>Todo List</h1>
@@ -22,8 +26,9 @@
 <script type="text/javascript">
   $(document).ready(function() {
     App = {};
-    App.collection = new Todo.collections.Tasks(<%= @tasks.to_json.html_safe %>);
-    App.view = new Todo.views.TasksView({collection: App.collection, el: '.task-list', editContainer: $('.edit'), container: $('.tasks')});
+//    App.collection = new Todo.collections.Tasks(<%= @tasks.to_json.html_safe %>);
+//    App.view = new Todo.views.TasksView({collection: App.collection, el: '.task-list', editContainer: $('.edit'), container: $('.tasks')});
+    App.view = new Todo.views.UserView({container: $('.create-list') });
     App.view.render();
   });
 </script>
