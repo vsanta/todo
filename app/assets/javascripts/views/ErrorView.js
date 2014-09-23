@@ -3,11 +3,11 @@ namespace('Todo.views', {
     template: JST['templates/errors'],
 
     initialize: function(options){
-      this.messages = options.messages;
+      this.message = options.message;
     },
 
     render: function(){
-      this.$el.html(this.template({message:message}));
+      this.$el.html(this.template({message: this.message}));
       return this;
     }
   })

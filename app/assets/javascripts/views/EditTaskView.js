@@ -29,8 +29,10 @@ namespace('Todo.views', {
     },
 
     displayErrors: function (model, response) {
+      var errorView;
       _.each(model.errors, function (error) {
-       $('div.errors').append('<div class="alert-message">' + error.message + '</div>');
+       errorView = new Todo.views.ErrorView( {message:error.message} );
+       $('div.errors').append(errorView.render().$el);
       });
     },
 
