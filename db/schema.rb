@@ -11,14 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20111209024909) do
-
-  create_table "boring_old_rails_tasks", force: true do |t|
-    t.string   "lame_description"
-    t.boolean  "complete_like_anyone_cares"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(version: 20111014195133) do
 
   create_table "tasks", force: true do |t|
     t.string   "description"
